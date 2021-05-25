@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GaltonRunnerService } from '../galton-runner.service';
 
 @Component({
   selector: 'app-buckets',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BucketsComponent implements OnInit {
 
-  constructor() { }
+  public bucketNumber: number = 0;
+
+  constructor( private runnerService: GaltonRunnerService ) { }
 
   ngOnInit(): void {
   }
 
+  startBucket( n: number ): void {
+    console.log("Clicked")
+  }
 }
