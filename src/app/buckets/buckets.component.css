@@ -1,0 +1,21 @@
+tr.bar > td {
+    border: 1px solid black;
+    background: linear-gradient(to bottom, transparent 0%, darkmagenta 0% 100%);
+}
+
+tr.number > td {
+    text-align:center;
+    width:10%;
+}
+
+tr.bar {
+    height: 5em;
+}
+
+div.graph-bar {
+    position:absolute;
+    top:0%;
+    height:100%;
+    left:0%;
+    right:100%;
+}

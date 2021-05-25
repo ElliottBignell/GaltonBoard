@@ -1,0 +1,13 @@
+tr.bar > td {
+    border: 1px solid black;
+    background: linear-gradient(to bottom, transparent 0% 100%, navy 0% 0%);
+}
+
+td {
+    text-align:center;
+    width:10%;
+}
+
+tr.bar {
+    height: 5em;
+}
