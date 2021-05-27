@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GaltonRunnerService } from './galton-runner-service.service';
+import { GaltonRunnerService } from './galton-runner.service';
 
 describe('GaltonRunnerService', () => {
   let service: GaltonRunnerService;

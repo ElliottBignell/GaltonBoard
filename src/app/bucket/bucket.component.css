@@ -1,0 +1,12 @@
+div.counter {
+  text-align: center;
+}
+
+div.bar {
+  background: linear-gradient(to bottom, transparent 0%, darkmagenta 0% 100%);
+  position: relative;
+  top: 0%;
+  height: 5em;
+  left: 0%;
+  right: 100%;
+}
