@@ -1,5 +1,17 @@
 # GaltonBoard
 
+Provisional result of technical challenge for ClanInfo.
+
+# Notes for the assessor
+
+## TODOs
+
+The application is nowhere near as complete as I would like. Known deficiencies and planned enhancements are listed in the tickets.
+
+## Structure
+
+The page is structured as an Angular app with three components representing buckets, bars and bin. The content is rendered as vanilla HTML with CSS so as to degrade somewhat gracefully. A service has been created to run the loop representing the falling balls. The aim is to call the service and initiate the loop when a bucket is clicked. The loop then runs, representing a random left/right bounce at each bar. Once 10 bounces (number of rows of bars) is complete, the service would fire an event which can be intercepted by the bins. These would then write to the linear gradient filling the bin and so change the height of the solid bar. See tckets for detailed comments.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
 ## Development server
