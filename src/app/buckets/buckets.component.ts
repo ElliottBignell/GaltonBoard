@@ -33,9 +33,8 @@ export class BucketsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  startBucket( e:any ): void {
-
-    this.runnerService.startBucket( 5 );
-    this.numbers[ e.currentTarget.id ].count = 0;
+  startBucket( bucket: BucketComponent ): void 
+  {
+    this.runnerService.startBucket( bucket );
   }
 }

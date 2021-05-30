@@ -1,1 +1,7 @@
-<div class="bar"></div>
+<tr class="number">
+  {{ bucketLevel }}
+</tr>
+<div class="bar" 
+    [ngStyle]="{'background': 'linear-gradient(to bottom, white  ' + fillLevel() + '%, darkmagenta ' +  fillLevel() + '% 100%)'}"
+>
+</div>

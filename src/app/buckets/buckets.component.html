@@ -1,14 +1,9 @@
 <div style="width: 100%;">
   <table style="width: 100%;">
     <tbody>
-      <tr class="number">
-        <td *ngFor="let number of numbers;let i = index;" id="{{i}}" (click)="startBucket( $event )">
-          {{ number.count }}
-        </td>
-      </tr>
       <tr class="bar">
-        <td *ngFor="let number of numbers;let i = index;" id="{{i}}" (click)="startBucket( $event )">
-          <bucket-component></bucket-component>
+        <td *ngFor="let number of numbers;let i = index;">
+          <bucket-component #id (click)="startBucket( id )"></bucket-component>
         </td>
       </tr>
     </tbody>

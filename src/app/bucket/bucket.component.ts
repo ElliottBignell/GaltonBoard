@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { GaltonRunnerService } from '../galton-runner.service';
 
 @Component({
@@ -9,22 +9,21 @@ import { GaltonRunnerService } from '../galton-runner.service';
 export class BucketComponent implements OnInit {
 
   public bucketContent: number = 0;
-  public bucketCapacity: number = 10000;
-
-  public count: number = 10000;
+  public capacity: number = 10000;
+  @Input() public bucketLevel: number = 10000;
 
   constructor(private runnerService: GaltonRunnerService) {
   }
 
   ngOnInit() {
-
-    //this.runnerService.getCount.subscribe(( count ) => {
-       //this.count =  count;
-    //})
   }
 
-  startBucket(n: number): void {
-    alert("Clicked " + n);
+  fillLevel():number  {
+    return ( 1.0 - this.bucketLevel / this.capacity ) * 100;
+  }
+
+  @Input() setCount( n: number ) {
+    this.bucketLevel = n;  
   }
 }
 

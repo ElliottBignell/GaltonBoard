@@ -13,9 +13,9 @@ export class GaltonRunnerService {
     return 100;
   }
 
-  startBucket( n: number ): void {
+  startBucket( bucket: any ): void {
 
-      let balls:number = 10000;
+      let balls:number = bucket.bucketLevel;
       let ball: number = 0; 
 
       for ( ball = 0; ball < balls; ball++ ) {
@@ -24,14 +24,14 @@ export class GaltonRunnerService {
 
         let bar: number = 0; 
 
-         for ( bar = 0; bar < 10; bar ++ ) {
+        for ( bar = 0; bar < 10; bar ++ ) {
 
-             if ( this.randomGreaterThanZero() ) {
-                 index++;
-             }
-         }
+          if ( this.randomGreaterThanZero() ) {
+            this.bucketHit.emit( index++ );
+          }
+        }
 
-         this.bucketHit.emit( index );
+        bucket.setCount( bucket.bucketLevel - 1 );
       }
   }
 
