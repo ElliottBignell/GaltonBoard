@@ -1,16 +1,29 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Observable,Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GaltonRunnerService {
 
-  public bucketHit: EventEmitter< number > = new EventEmitter< number >();
+  private subject = new Subject< number >();
 
   constructor() { }
 
   getCount() {
     return 100;
+  }
+
+  sendMessage( n: number ) {
+    this.subject.next( n );
+  }
+
+  clearMessage() {
+    this.subject.next();
+  }
+
+  getMessage(): Observable< number > {
+    return this.subject.asObservable();
   }
 
   startBucket( bucket: any ): void {
@@ -20,22 +33,25 @@ export class GaltonRunnerService {
 
       for ( ball = 0; ball < balls; ball++ ) {
 
-        let index:number = 1;
-
+        let index:number = 0;
         let bar: number = 0; 
 
-        for ( bar = 0; bar < 10; bar ++ ) {
+        for ( bar = 1; bar < 10; bar ++ ) {
 
           if ( this.randomGreaterThanZero() ) {
-            this.bucketHit.emit( index++ );
+            index++;
           }
         }
 
         bucket.setCount( bucket.bucketLevel - 1 );
+
+        if ( this.randomGreaterThanZero() ) {
+          this.sendMessage( index );
+        }
       }
   }
 
   randomGreaterThanZero(): boolean {
-    return ( 1 > Math.random() * 2 );
+    return ( 1.0 > Math.random() * 2.0 );
   }
 }

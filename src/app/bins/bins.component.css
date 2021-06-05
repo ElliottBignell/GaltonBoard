@@ -1,13 +1,25 @@
-tr.bar > td {
-    border: 1px solid black;
-    background: linear-gradient(to bottom, transparent 0% 100%, navy 0% 0%);
+td {
+  width: 10%;
 }
 
-td {
-    text-align:center;
-    width:10%;
+tr.bar > td {
+  border: 1px solid black;
+  padding:0px;
+}
+
+tr.number > td {
+  text-align:center;
+  width:10%;
 }
 
 tr.bar {
-    height: 5em;
+  height: 5em;
+}
+
+bin-component {
+  position:relative;
+  top:0%;
+  bottom:100%;
+  left:0%;
+  right:100%;
 }

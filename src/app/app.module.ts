@@ -5,17 +5,19 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BucketsComponent } from './buckets/buckets.component';
+import { BucketComponent } from './bucket/bucket.component';
 import { BarsComponent } from './bars/bars.component';
 import { BinsComponent } from './bins/bins.component';
-import { BucketComponent } from './bucket/bucket.component';
+import { BinComponent } from './bin/bin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BucketsComponent,
+    BucketComponent,
     BarsComponent,
     BinsComponent,
-    BucketComponent
+    BinComponent
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,7 @@ export class BucketsComponent implements OnInit {
 
   private count: number = 8;
 
-  constructor(private runnerService: GaltonRunnerService) {
+  constructor(private service: GaltonRunnerService) {
 
     this.numbers = Array.from({ length: 10 }, () => ({
       count: 10000,
@@ -35,6 +35,14 @@ export class BucketsComponent implements OnInit {
 
   startBucket( bucket: BucketComponent ): void 
   {
-    this.runnerService.startBucket( bucket );
+    this.service.startBucket( bucket );
+  }
+
+  sendMessage(): void {
+    this.service.sendMessage( 300 );   
+  }
+
+  clearMessage():void{
+    this.service.clearMessage();
   }
 }
