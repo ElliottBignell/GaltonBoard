@@ -3,7 +3,7 @@
         <tbody>
             <tr *ngFor="let row of barRows; let y = index;">
                 <td> </td>
-                <td *ngFor="let column of barColumns; let x = index;" style="width:5%">
+                <td *ngFor="let column of barColumns; let x = index;" style="width:{{ barWidth() }}%; text-align:center;">
                   <div *ngIf="isBarHere( x, y + 1);">                
                     &#8226;
                   </div>                

@@ -7,16 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarsComponent implements OnInit {
 
+  private static rows:number = 20;
+  private static columns:number = BarsComponent.rows * 2;
   public barRows: Array< Boolean > = [];
-  public rows:number = 10;
   public barColumns: Array< Boolean > = [];
-  public columns:number = 20;
 
   constructor() {
 
     console.log("In");
-    this.barColumns = Array.from({ length: 20 }, () => false );
-    this.barRows    = Array.from({ length: 20 }, () => false );
+    this.barColumns = Array.from({ length: BarsComponent.columns }, () => false );
+    this.barRows    = Array.from({ length: BarsComponent.columns }, () => false );
   }
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class BarsComponent implements OnInit {
 
   isBarHere( x:number, y: number ): boolean {
 
-    let middleColumn = this.columns + 1;
+    let middleColumn = BarsComponent.columns + 1;
     let count:number = y;
     let column:number = middleColumn - y;
     let ret:boolean = false;
@@ -41,5 +41,17 @@ export class BarsComponent implements OnInit {
     }
 
     return ret;
+  }
+
+  public static getBottomBarsCount(): number {
+    return this.rows;
+  }
+
+  public static getRowCount(): number {
+    return BarsComponent.rows;
+  }
+
+  barWidth() {
+    return 100 / ( BarsComponent.rows * 2 );
   }
 }

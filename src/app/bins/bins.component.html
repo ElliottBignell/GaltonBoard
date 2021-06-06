@@ -1,11 +1,11 @@
-<div style="width: 100%;">
-  <table style="width: 100%;">
-    <tbody>
-      <tr class="bar">
-        <td *ngFor="let number of numbers;let i = index;">
-          <bin-component></bin-component>
-        </td>
-      </tr>
-    </tbody>
+<div style="100%">
+  <table style="100%">
+    <tr class="bar">
+      <td style="width:{{ binWidth() }}%;">
+      </td>
+      <td *ngFor="let number of numbers;let i = index;" style="width:{{ binWidth() }}%;">
+        <bin-component></bin-component>
+      </td>
+    </tr>
   </table>
 </div>

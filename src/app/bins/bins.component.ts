@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GaltonRunnerService } from '../galton-runner.service';
 import { Subscription } from 'rxjs';
 import { BinComponent } from "../bin/bin.component";
+import { BarsComponent } from "../bars/bars.component";
 import { ViewChildren, QueryList } from "@angular/core";
 
 @Component({
@@ -14,9 +15,8 @@ export class BinsComponent implements OnInit {
   @ViewChildren( BinComponent ) binComponents!: QueryList< BinComponent >;
   //@Output() increment = new EventEmitter();
 
-  public binNumber: number = 0;
   public numbers: Array<any> = [];
-  private count: number = 8;
+  private count: number = BarsComponent.getBottomBarsCount();
 
   message: any = {};
   subscription: Subscription;
@@ -29,13 +29,16 @@ export class BinsComponent implements OnInit {
         }
     );
 
-    this.numbers = Array.from({ length: 10 }, () => ({
-      count: 0,
-      index: 5
+    this.numbers = Array.from({ length: this.count }, () => ({
+      count: 0
     }));
   }
 
   ngOnInit(): void 
   {
+  }
+
+  binWidth(): number {
+    return 100 / BarsComponent.getRowCount();
   }
 }

@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable,Subject} from 'rxjs';
+import { BarsComponent } from "./bars/bars.component";
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,7 @@ export class GaltonRunnerService {
         let index:number = 0;
         let bar: number = 0; 
 
-        for ( bar = 1; bar < 10; bar ++ ) {
+        for ( bar = 1; bar < BarsComponent.getBottomBarsCount(); bar ++ ) {
 
           if ( this.randomGreaterThanZero() ) {
             index++;

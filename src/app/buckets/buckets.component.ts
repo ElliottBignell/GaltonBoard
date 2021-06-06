@@ -12,14 +12,8 @@ export class BucketsComponent implements OnInit {
 
   @ViewChild(BucketComponent) bucketComponent!: BucketComponent;
 
-  public bucketNumber: number = 0;
   public numbers: Array<any> = [];
-  public barRows:    Array< Boolean > = [];
-  public barColumns: Array< Boolean > = [];
   public columns:number = 10;
-  public rows:number    = 10;
-
-  private count: number = 8;
 
   constructor(private service: GaltonRunnerService) {
 
@@ -27,8 +21,6 @@ export class BucketsComponent implements OnInit {
       count: 10000,
       index: 5
     }));
-    this.barColumns = Array.from({ length: 10 }, () => false );
-    this.barRows    = Array.from({ length: 10 }, () => false );
   }
 
   ngOnInit(): void {}
@@ -38,11 +30,7 @@ export class BucketsComponent implements OnInit {
     this.service.startBucket( bucket );
   }
 
-  sendMessage(): void {
-    this.service.sendMessage( 300 );   
-  }
-
-  clearMessage():void{
-    this.service.clearMessage();
+  getBucketCount(): number {
+    return this.columns;
   }
 }
